@@ -7,28 +7,9 @@
 
 import SwiftUI
 
-struct AppViewBuilder<TabbarView: View, OnboardingView: View>: View {
-  var showTabBar: Bool = false
-
-  @ViewBuilder var tabbarView: TabbarView
-  @ViewBuilder var onboardingView: OnboardingView
-
-  var body: some View {
-    ZStack {
-      if showTabBar {
-        tabbarView
-          .transition(.move(edge: .trailing))
-      } else {
-        onboardingView
-          .transition(.move(edge: .leading))
-      }
-    }
-    .animation(.smooth, value: showTabBar)
-  }
-}
-
 struct AppView: View {
-  @State private var showTabBar: Bool = false
+  @AppStorage("showTabbarView") var showTabBar: Bool = false
+  
   var body: some View {
     AppViewBuilder(showTabBar: showTabBar) {
       ZStack {
@@ -41,12 +22,12 @@ struct AppView: View {
         Text("onboarding")
       }
     }
-    .onTapGesture {
-      showTabBar.toggle()
-    }
   }
 }
 
-#Preview {
-  AppView()
+#Preview("AppView - Tabbar") {
+  AppView(showTabBar: true)
+}
+#Preview("AppView - Onboarding") {
+  AppView(showTabBar: false)
 }
