@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
   #if DEBUG
-  @ObserveInjection var forceRedraw
+    @ObserveInjection var forceRedraw
   #endif
 
   var body: some View {
@@ -24,10 +24,10 @@ struct TabBarView: View {
         }
       ProfileView()
         .tabItem {
-          Label("Explore", systemImage: "person.fill")
+          Label("Profile", systemImage: "person.fill")
         }
     }
-      .enableInjection()
+    .enableInjection()
   }
 }
 
