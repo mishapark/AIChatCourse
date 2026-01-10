@@ -15,7 +15,7 @@ struct OnboardingIntroView: View {
   var body: some View {
     VStack {
       Text(
-        "Make your own \(highlighted("avatars")) and chat with them!\n\nHave \(highlighted("real conversationss")) with AI generated responses."
+        "Make your own \(highlighted("avatars")) and chat with them!\n\nHave \(highlighted("real conversations")) with AI generated responses."
       )
       .frame(maxHeight: .infinity)
       .padding(24)
