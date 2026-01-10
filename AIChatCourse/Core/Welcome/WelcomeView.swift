@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct WelcomeView: View {
-  var body: some View {
-    @State var imageName: String = Constants.randomImage
+  #if DEBUG
+    @ObserveInjection var forceRedraw
+  #endif
 
+  @State private var imageName: String = Constants.randomImage
+
+  var body: some View {
     NavigationStack {
       VStack(spacing: 8) {
         ImageLoaderView(urlString: imageName)
@@ -24,6 +28,7 @@ struct WelcomeView: View {
         policyLinks
       }
     }
+    .enableInjection()
   }
 
   private var titleSection: some View {
@@ -40,7 +45,7 @@ struct WelcomeView: View {
   private var ctaButtons: some View {
     VStack(spacing: 8) {
       NavigationLink {
-        OnboardingCompletedView()
+        OnboardingIntroView()
       } label: {
         Text("Get Started")
           .callToActionButton()

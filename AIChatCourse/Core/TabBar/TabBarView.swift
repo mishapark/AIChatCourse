@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct TabBarView: View {
+  #if DEBUG
+  @ObserveInjection var forceRedraw
+  #endif
+
   var body: some View {
     TabView {
       ExploreView()
@@ -23,6 +27,7 @@ struct TabBarView: View {
           Label("Explore", systemImage: "person.fill")
         }
     }
+      .enableInjection()
   }
 }
 

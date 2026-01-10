@@ -12,6 +12,10 @@ struct ImageLoaderView: View {
   var urlString: String = Constants.randomImage
   var resizingMode: ContentMode = .fill
 
+  #if DEBUG
+  @ObserveInjection var forceRedraw
+  #endif
+
   var body: some View {
     Rectangle()
       .opacity(0)
@@ -23,6 +27,7 @@ struct ImageLoaderView: View {
           .allowsHitTesting(false)
       )
       .clipped()
+      .enableInjection()
   }
 }
 

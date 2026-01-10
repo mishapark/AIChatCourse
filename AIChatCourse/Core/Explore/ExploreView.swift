@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ExploreView: View {
+  #if DEBUG
+  @ObserveInjection var forceRedraw
+  #endif
+
   var body: some View {
     NavigationStack {
       Text("Explore")
     }
+    .enableInjection()
   }
 }
 

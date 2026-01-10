@@ -10,11 +10,12 @@ import SwiftUI
 struct OnboardingCompletedView: View {
   @Environment(AppState.self) private var root
 
+  #if DEBUG
+    @ObserveInjection var forceRedraw
+  #endif
+
   var body: some View {
     VStack {
-      Text("Onboarding Completed!")
-        .frame(maxHeight: .infinity)
-
       Button {
         onFinishButtonPressed()
       } label: {
@@ -23,6 +24,7 @@ struct OnboardingCompletedView: View {
       }
     }
     .padding(16)
+    .enableInjection()
   }
 
   func onFinishButtonPressed() {

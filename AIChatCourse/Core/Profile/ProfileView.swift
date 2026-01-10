@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ProfileView: View {
   @State private var showSettingsView: Bool = false
+  #if DEBUG
+  @ObserveInjection var forceRedraw
+  #endif
+
   var body: some View {
     NavigationStack {
       Text("Profile")
@@ -22,6 +26,7 @@ struct ProfileView: View {
     .sheet(isPresented: $showSettingsView) {
       SettingsView()
     }
+    .enableInjection()
   }
 
   private var settingsButton: some View {

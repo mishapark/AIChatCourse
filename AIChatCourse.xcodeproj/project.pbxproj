@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C58DE5222F10FADC00291D39 /* HotSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C58DE5212F10FADC00291D39 /* HotSwiftUI */; };
 		C5A0580C2F10D2F5003265CF /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C5A0580B2F10D2F5003265CF /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58DE5222F10FADC00291D39 /* HotSwiftUI in Frameworks */,
 				C5A0580C2F10D2F5003265CF /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +129,7 @@
 			name = AIChatCourse;
 			packageProductDependencies = (
 				C5A0580B2F10D2F5003265CF /* SDWebImageSwiftUI */,
+				C58DE5212F10FADC00291D39 /* HotSwiftUI */,
 			);
 			productName = AIChatCourse;
 			productReference = C5A06C252F0DFE2A000FB765 /* AIChatCourse.app */;
@@ -212,6 +215,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C5A058092F10D276003265CF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				C5CF24D52F10F3B300B7EAA7 /* XCRemoteSwiftPackageReference "InjectionNext" */,
+				C58DE5202F10FA8100291D39 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C5A06C262F0DFE2A000FB765 /* Products */;
@@ -252,6 +257,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		C5A06C532F0E0D45000FB765 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -437,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9TW4L83J58;
+				EMIT_FRONTEND_COMMAND_LINES = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -453,6 +460,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkmisha.AIChatCourse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -477,6 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9TW4L83J58;
+				EMIT_FRONTEND_COMMAND_LINES = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -635,6 +647,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C58DE5202F10FA8100291D39 /* XCRemoteSwiftPackageReference "HotSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/HotSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
 		C5A058092F10D276003265CF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -643,9 +663,22 @@
 				minimumVersion = 3.1.4;
 			};
 		};
+		C5CF24D52F10F3B300B7EAA7 /* XCRemoteSwiftPackageReference "InjectionNext" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/InjectionNext";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C58DE5212F10FADC00291D39 /* HotSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C58DE5202F10FA8100291D39 /* XCRemoteSwiftPackageReference "HotSwiftUI" */;
+			productName = HotSwiftUI;
+		};
 		C5A0580B2F10D2F5003265CF /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C5A058092F10D276003265CF /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

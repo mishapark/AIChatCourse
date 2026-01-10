@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct AppView: View {
-  @State private var appState: AppState = .init()
+  @State private var appState: AppState
 
-  init(appState: AppState = .init()) {
+  init(appState: AppState = AppState()) {
     _appState = State(initialValue: appState)
   }
+
+  #if DEBUG
+    @ObserveInjection var forceRedraw
+  #endif
 
   var body: some View {
     AppViewBuilder(showTabBar: appState.showTabBar) {
@@ -21,6 +25,7 @@ struct AppView: View {
       WelcomeView()
     }
     .environment(appState)
+    .enableInjection()
   }
 }
 
