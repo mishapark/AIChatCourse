@@ -31,6 +31,7 @@ struct OnboardingIntroView: View {
     }
 
     .font(.title3)
+    .toolbar(.hidden, for: .navigationBar)
     .enableInjection()
   }
 

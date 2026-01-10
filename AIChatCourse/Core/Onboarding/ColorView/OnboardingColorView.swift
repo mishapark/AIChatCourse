@@ -19,14 +19,15 @@ struct OnboardingColorView: View {
     .safeAreaInset(edge: .bottom, alignment: .center, spacing: 16) {
       ZStack {
         if let selectedColor {
-          ctaButton
-            .transition(AnyTransition.move(edge: .bottom))
+          ctaButton(selectedColor: selectedColor)
+            .transition(.move(edge: .bottom))
         }
       }
       .padding(24)
       .background(Color(uiColor: .systemBackground))
     }
     .animation(.bouncy, value: selectedColor)
+    .toolbar(.hidden, for: .navigationBar)
     .enableInjection()
   }
 
@@ -59,14 +60,13 @@ struct OnboardingColorView: View {
     }
   }
 
-  private var ctaButton: some View {
+  private func ctaButton(selectedColor: Color) -> some View {
     NavigationLink {
-      OnboardingCompletedView()
+      OnboardingCompletedView(selectedColor: selectedColor)
     } label: {
       Text("Continue")
         .callToActionButton()
     }
-    .transition(AnyTransition.move(edge: .bottom))
   }
 }
 
