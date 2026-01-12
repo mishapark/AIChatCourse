@@ -12,9 +12,19 @@ struct ExploreView: View {
     @ObserveInjection var forceRedraw
   #endif
 
+  let avatar = AvatarModel.mock
+
   var body: some View {
     NavigationStack {
-      HeroCellView()
+      CarouselView()
+
+      HeroCellView(
+        title: avatar.name,
+        subtitle: avatar.characterDescription,
+        imageName: avatar.profileImage
+      )
+      .frame(height: 200)
+      .navigationTitle("Explore")
     }
     .enableInjection()
   }

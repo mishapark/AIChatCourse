@@ -4,7 +4,7 @@ struct OnboardingColorView: View {
   @State private var selectedColor: Color?
 
   let profileColors: [Color] = [
-    .red, .orange, .yellow, .green, .blue, .indigo, .brown, .gray, .black, .white,
+    .red, .orange, .yellow, .green, .blue, .indigo, .brown, .gray, .black, .white
   ]
 
   #if DEBUG
@@ -36,7 +36,9 @@ struct OnboardingColorView: View {
       columns: Array(
         repeating: GridItem(
           .flexible(),
-          spacing: 16), count: 3),
+          spacing: 16
+        ), count: 3
+      ),
       alignment: .center,
       spacing: 16,
       pinnedViews: [.sectionHeaders],
